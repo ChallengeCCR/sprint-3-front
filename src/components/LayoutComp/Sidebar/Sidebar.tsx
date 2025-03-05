@@ -43,7 +43,7 @@ export default function Sidebar() {
 
                 <GrupoLinks nomeGrupo="Status"
                     items={[
-                        { textoLink: "Alertas", iconeLink: "fa-triangle-exclamation", enderecoLink: "/" },
+                        { textoLink: "Alertas", iconeLink: "fa-triangle-exclamation", enderecoLink: "/alertas" },
                         { textoLink: "Linhas", iconeLink: "fa-sign-hanging", enderecoLink: "/" },
                         { textoLink: "Estações", iconeLink: "fa-train", enderecoLink: "/" },
                         { textoLink: "Trens", iconeLink: "fa-road", enderecoLink: "/" },
