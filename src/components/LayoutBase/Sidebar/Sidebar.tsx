@@ -11,8 +11,10 @@ export default function Sidebar() {
     return (
         <div className="flex">
             <aside className={`flex-col justify-start bg-black px-2 text-white flex transition-all
-                
-                ${colapsado ? "rounded-xl h-16 w-16" : "rounded-none h-screen px-4"}`}>
+                ${colapsado ?
+                    "rounded-xl h-16 w-16 sm:h-screen sm:rounded-none" :
+                    "rounded-none h-screen bg-blue "}`
+            }>
 
                 {/* Botão que seta o status de colapsado */}
                 <button
@@ -55,14 +57,13 @@ export default function Sidebar() {
     )
 }
 
-// Usando as propriedades 
+// Grupos com links
 export function GrupoLinks(props: {
-    nomeGrupo: string;
-    items: { enderecoLink: string; iconeLink: string; textoLink: string }[]; colapsado: boolean
+    nomeGrupo: string; items: { enderecoLink: string; iconeLink: string; textoLink: string }[]; colapsado: boolean
 }) {
     const { nomeGrupo, items, colapsado } = props;
     return (
-        <div className="flex flex-col mb-4  sm:border-t sm:border-gray-700 sm:pt-2">
+        <div className="flex flex-col mb-4  sm:border-y sm:py-2 sm:border-gray-700">
             {/* Exibindo o nome do grupo e os itens */}
             {!colapsado && <h2 className="mb-2 text-sm text-gray-400">{nomeGrupo}</h2>}
 
@@ -76,19 +77,20 @@ export function GrupoLinks(props: {
     )
 }
 
+// Elementos links
 export function LinkLateral(props: { textoLink: string, iconeLink: string, enderecoLink: string, colapsado: boolean }) {
-
     const { textoLink, iconeLink, enderecoLink, colapsado } = props;
 
     return (
         // Arrumar depois para quando não estiver colapsado a partir de sm:*
         <Link
             href={enderecoLink}
-            className={`${colapsado ? "" : "bg-gray-700 text-white"
-                } flex items-center gap-2 rounded-xl size-full p-4 py-1 mb-1 transition-all hover:bg-slate-300 hover:text-black`}
+            className={`${colapsado ?
+                "hidden sm:flex justify-center p-3 mb-2 rounded-xl hover:bg-slate-300" :
+                "bg-gray-700 text-white flex items-center gap-2 rounded-xl size-full p-4 py-1 mb-2 transition-all hover:bg-slate-300 hover:text-black"}`}
         >
             {/* Ícone sempre alinhado à esquerda */}
-            {!colapsado && <i className={`fa-solid ${iconeLink} text-red-700 text-lg`}></i>}
+            <i className={`fa-solid ${iconeLink} text-red-700 text-lg`}></i>
 
             {/* Texto ao lado do ícone */}
             {!colapsado && <span className="text-base">{textoLink}</span>}
