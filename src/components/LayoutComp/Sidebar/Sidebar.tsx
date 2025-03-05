@@ -1,16 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
 
     // Definindo se a sidebar está colapsada ou não
     const [colapsado, setColapsado] = useState(true);
 
+    // Sincronizando o estado após a montagem no cliente
+    useEffect(() => {
+        setColapsado(true);
+    }, []);
+
+    // Função para alternar o estado da sidebar
+    const alterarStatusColapso = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault(); // Previne o comportamento padrão do botão
+        setColapsado(!colapsado);
+    };
+
     return (
         <div className="flex">
-            <aside className={`flex-col justify-start bg-black px-2 text-white flex transition-all
+            <aside className={`flex flex-col justify-start bg-black px-2 text-white transition-all
                 ${colapsado ?
                     "rounded-xl h-16 w-16 sm:h-screen sm:rounded-none" :
                     "rounded-none h-screen bg-blue "}`
@@ -19,14 +30,17 @@ export default function Sidebar() {
                 {/* Botão que seta o status de colapsado */}
                 <button
                     className={`bg-gray-700 flex justify-center items-center my-4 py-2 rounded-xl ${!colapsado && "max-h-8"}`}
-                    onClick={() => setColapsado(!colapsado)}>
+                    onClick={alterarStatusColapso}>
 
                     {/* Trocando o ícone de acordo com o estado */}
                     <i className={`fa-solid ${colapsado ? "fa-bars" : "fa-arrow-left"} text-xl transition-all`}></i>
                 </button>
 
 
+
                 {/* Criando os grupos */}
+                <LinkLateral textoLink="Página Inicial" iconeLink="fa-home" enderecoLink="/" colapsado={colapsado} />
+
                 <GrupoLinks nomeGrupo="Status"
                     items={[
                         { textoLink: "Alertas", iconeLink: "fa-triangle-exclamation", enderecoLink: "/" },
@@ -45,7 +59,7 @@ export default function Sidebar() {
                     colapsado={colapsado}
                 />
 
-                <GrupoLinks nomeGrupo="Suporte"
+                <GrupoLinks nomeGrupo="Configurações"
                     items={[
                         { textoLink: "Minha Conta", iconeLink: "fa-user-gear", enderecoLink: "/" },
                         { textoLink: "Tema Claro", iconeLink: "fa-sun", enderecoLink: "/" }]}
@@ -87,7 +101,7 @@ export function LinkLateral(props: { textoLink: string, iconeLink: string, ender
             href={enderecoLink}
             className={`${colapsado ?
                 "hidden sm:flex justify-center p-3 mb-2 rounded-xl hover:bg-slate-300" :
-                "bg-gray-700 text-white flex items-center gap-2 rounded-xl size-full p-4 py-1 mb-2 transition-all hover:bg-slate-300 hover:text-black"}`}
+                "bg-gray-700 text-white flex items-center gap-2 rounded-xl p-4 py-1 mb-2 transition-all hover:bg-slate-300 hover:text-black"}`}
         >
             {/* Ícone sempre alinhado à esquerda */}
             <i className={`fa-solid ${iconeLink} text-red-700 text-lg`}></i>
