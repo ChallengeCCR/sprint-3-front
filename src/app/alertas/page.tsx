@@ -10,8 +10,8 @@ export default function Alertas() {
             <TituloPagina iconeTitulo="triangle-exclamation">Alertas Registrados</TituloPagina>
             <BarraDePesquisa></BarraDePesquisa>
 
-            {/* Os alertas serão exibidos aqui, 3 exemplos com diferentes graus */}
-            <div>
+            {/* Os alertas serão exibidos aqui, 3 exemplos com diferentes graus -- NÃO FUNCIONA POR ALGUM MOTIVO !!! talvez mudar o jeito que ele seta como aberto/ fechado*/}
+            <div className="lg:grid lg:grid-cols-3 lg:gap-2">
                 <CaixaAlerta
                     titulo="Exemplo Alerta"
                     descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore magnam, fuga aspernatur corrupti totam hic nisi possimus dolor id libero ipsa! Possimus eius similique excepturi eos delectus accusantium perspiciatis ipsum maiores veniam! Eum ab aliquid modi iusto, animi repellendus assumenda numquam maiores voluptatem autem! "
@@ -40,7 +40,7 @@ export function CaixaAlerta(props: { titulo: string; descricao: string; data: st
     const [detalhesVisiveis, setDetalhesVisiveis] = useState(false); // Por padrão os detalhes dos alertas virão vazios
 
     return (
-        <div className="w-[340px] flex flex-col border-2 border-gray-500 rounded-xl p-4 my-2">
+        <div className={`${detalhesVisiveis ? "h-auto" : "h-fit"} w-[340px] flex flex-col border-2 border-gray-500 rounded-xl p-4 my-2`}>
             {/* Título e gravidade */}
             <div className="flex justify-between">
                 <h2 className="font-bold text-xl w-auto">{titulo}</h2>
