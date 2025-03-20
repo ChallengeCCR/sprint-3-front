@@ -11,7 +11,7 @@
 ## 📺 **Demonstração do Projeto**
 
 **Disponível em:**  
-[Link do YouTube](<link do youtube>)
+[Link do YouTube](https://www.youtube.com/watch?v=m_kN6JVBLT8)
 
 ---
 
