@@ -42,6 +42,22 @@
 
 ---
 
+## 🛠️ **Desenvolvimento**
+
+O sistema foi desenvolvido com o objetivo de **facilitar a visualização das condições dos serviços** oferecidos pela **CCR nas linhas 8 e 9**, atendendo tanto **passageiros** quanto **operadores do CCO**.
+
+A interface do sistema busca ser **simples e atrativa**, priorizando uma **experiência objetiva** para o usuário. As funcionalidades foram cuidadosamente modularizadas para oferecer uma navegação eficiente.
+
+---
+
+## 🌐 **Navegar no sistema**
+
+Para navegar pelo sistema, basta utilizar os links contidos no **cabeçalho do site**.
+
+Na versão **desktop**, esses links estão sempre visíveis. Em dispositivos menores, eles aparecem como uma **sidebar** que pode ser acessada ao clicar no botão de **"lista"**.
+
+---
+
 ## 🗂️ **Estrutura do Projeto**
 
 ```bash
@@ -65,19 +81,4 @@ src/
 │   ├── SelectCustomizado/         # Dropdown personalizado
 │   ├── SubBotaoPagina/            # Botão secundário
 │   ├── TituloPagina/              # Componente de título da página
-
-## Desenvolvimento
-
-O sistema foi desenvolvido pensando em passageiros e operadores do CCO com o intuito de facilitar a visualização das condições dos serviçõs que estão sendo fornecidos pela CCR nas linhas 8 e 9.
-
-As páginas buscam ter uma interface simples e atrativas que sejam objetivas, tendo funções específicas modularizadas.
-
-
-## Navegar no sistema
-
-Para navegar pelo sistema basta utilizar dos links contidos no cabeçalho do site.
-
-Na versão desktop esses links sempre estão visíveis, para dispositivos menores ele aparece como uma sidebar que pode ser acessada ao clicar em um botão de "lista".
-
-
 ```
