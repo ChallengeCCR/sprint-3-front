@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Autorail Monitor - Challenge CCR**
 
-## Getting Started
+## Sprint 3 - Front End Design Engineering
 
-First, run the development server:
+---
+
+### Mais detalhes sobre o projeto disponíveis na entrega via Portal do Aluno
+
+---
+
+## 📺 **Demonstração do Projeto**
+
+**Disponível em:**  
+[Link do YouTube](<link do youtube>)
+
+---
+
+## 🚀 **Iniciando o Projeto**
+
+1. **Abra um terminal** e navegue até a pasta do projeto.
+2. **Instale as dependências** do projeto com o comando:
+
+    ```bash
+    npm install
+    ```
+
+3. Após a instalação, inicie o servidor com um dos comandos abaixo:
+
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    # ou
+    pnpm dev
+    # ou
+    bun dev
+    ```
+
+4. **Abra [http://localhost:3000](http://localhost:3000)** em seu navegador para ver o resultado.
+
+> **Observação:** Este projeto utiliza o [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) para estilizar fontes e [Geist](https://vercel.com/font). Caso ocorra um erro relacionado às fontes, certifique-se de que as dependências foram instaladas corretamente.
+
+---
+
+## 🗂️ **Estrutura do Projeto**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/
+│   ├── page.tsx                   # Página inicial
+│   ├── alertas/                   # Alertas ativos
+│   ├── area-colaborador/          # Área do colaborador
+│   ├── cadastro/                  # Registro de usuários
+│   ├── integrantes/               # Equipe do projeto
+│   ├── login/                     # Login de usuários
+│   ├── minha-conta/               # Dados do usuário logado
+│   ├── sobre/                     # Informações sobre o projeto
+│   ├── status/                    # Status das linhas, estações e trens
+│   ├── suporte/                   # Suporte e ajuda
+├── components/                    # Componentes reutilizáveis
+│   ├── BarraDePesquisa/           # Componente de barra de pesquisa
+│   ├── BotaoPrimario/             # Botão principal estilizado
+│   ├── InputCustomizada/          # Campo de input customizado
+│   ├── LayoutComp/                # Layout geral do site
+│   ├── SelectCustomizado/         # Dropdown personalizado
+│   ├── SubBotaoPagina/            # Botão secundário
+│   ├── TituloPagina/              # Componente de título da página
+
+## Desenvolvimento
+
+O sistema foi desenvolvido pensando em passageiros e operadores do CCO com o intuito de facilitar a visualização das condições dos serviçõs que estão sendo fornecidos pela CCR nas linhas 8 e 9.
+
+As páginas buscam ter uma interface simples e atrativas que sejam objetivas, tendo funções específicas modularizadas.
+
+
+## Navegar no sistema
+
+Para navegar pelo sistema basta utilizar dos links contidos no cabeçalho do site.
+
+Na versão desktop esses links sempre estão visíveis, para dispositivos menores ele aparece como uma sidebar que pode ser acessada ao clicar em um botão de "lista".
+
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

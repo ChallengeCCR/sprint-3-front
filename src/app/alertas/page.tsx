@@ -1,61 +1,65 @@
 "use client";
-import BarraDePesquisa from "@/components/Util/BarraDePesquisa/BarraDePesquisa";
-import TituloPagina from "@/components/Util/TituloPagina/TituloPagina";
+import BarraDePesquisa from "@/components/BarraDePesquisa/BarraDePesquisa";
+import TituloPagina from "@/components/TituloPagina/TituloPagina";
 import { useState } from "react";
 
 export default function Alertas() {
     return (
         <div className="w-full h-full flex flex-col justify-start items-center py-4">
-            {/* Configurar o "título" da página aqui */}
-            <TituloPagina iconeTitulo="triangle-exclamation">Alertas Registrados</TituloPagina>
-            <BarraDePesquisa></BarraDePesquisa>
+            {/* Título da página e barra de pesquisa*/}
+            <TituloPagina iconeTitulo="triangle-exclamation">Alertas Ativos</TituloPagina>
+            <BarraDePesquisa />
 
-            {/* Os alertas serão exibidos aqui, 3 exemplos com diferentes graus -- NÃO FUNCIONA POR ALGUM MOTIVO !!! talvez mudar o jeito que ele seta como aberto/ fechado*/}
-            <div className="lg:grid lg:grid-cols-3 lg:gap-2">
-                <CaixaAlerta
-                    titulo="Exemplo Alerta"
-                    descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore magnam, fuga aspernatur corrupti totam hic nisi possimus dolor id libero ipsa! Possimus eius similique excepturi eos delectus accusantium perspiciatis ipsum maiores veniam! Eum ab aliquid modi iusto, animi repellendus assumenda numquam maiores voluptatem autem! "
-                    data="25/03/2025 - 12:00"
-                    grauGravidade={1}
-                />
-                <CaixaAlerta titulo="Exemplo Alerta" descricao="Oi fofinho ><" data="25/03/2025 - 12:00" grauGravidade={2} />
-                <CaixaAlerta titulo="Exemplo Alerta" descricao="Exemplo de uma descrição para alertasa" data="25/03/2025 - 12:00" grauGravidade={3} />
+            {/* Os alertas ficam aqui */}
+            <div className="flex justify-center flex-wrap gap-4 w-full md:max-w-[1200px] px-4 py-2">
+                <CaixaAlerta titulo="Exemplo Alerta 01" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={1} />
+                <CaixaAlerta titulo="Exemplo Alerta 02" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={2} />
+                <CaixaAlerta titulo="Exemplo Alerta 03" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={3} />
+                <CaixaAlerta titulo="Exemplo Alerta 01" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={1} />
+                <CaixaAlerta titulo="Exemplo Alerta 02" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={2} />
+                <CaixaAlerta titulo="Exemplo Alerta 03" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={3} />
+                <CaixaAlerta titulo="Exemplo Alerta 01" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={1} />
+                <CaixaAlerta titulo="Exemplo Alerta 02" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={2} />
+                <CaixaAlerta titulo="Exemplo Alerta 03" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={3} />
+                <CaixaAlerta titulo="Exemplo Alerta 01" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={1} />
+                <CaixaAlerta titulo="Exemplo Alerta 02" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={2} />
+                <CaixaAlerta titulo="Exemplo Alerta 03" descricao="Exemplo de uma descrição para alertas" data="25/03/2025 - 12:00" grauGravidade={3} />
             </div>
         </div>
     );
 }
 
-// Enquanto o código não for integrado com a api as datas serão usadas como string
+// Caixa de Alerta
 export function CaixaAlerta(props: { titulo: string; descricao: string; data: string; grauGravidade: number }) {
     const { titulo, descricao, data, grauGravidade } = props;
 
     // Mapa das cores
     const gravidadeMap: Record<number, { cor: string; texto: string }> = {
-        1: { cor: "bg-green-200", texto: "Grau Baixo" },
-        2: { cor: "bg-amber-200", texto: "Grau Médio" },
-        3: { cor: "bg-red-300", texto: "Grau Alto" },
+        1: { cor: "bg-green-200", texto: "Leve" }, // Número 1 vai passar a cor verde e o texto leve
+        2: { cor: "bg-amber-200", texto: "Médio" }, // Número 2 vai passar a cor amarela e o texto médio
+        3: { cor: "bg-red-300", texto: "Grave" }, // Número 3 vai passar a cor vermelha e o texto grave
     };
-    const { cor: corDaGravidade, texto: textoGravidade } = gravidadeMap[grauGravidade] || { cor: "bg-gray-200", texto: "Grau Desconhecido" };
+    const { cor: corDaGravidade, texto: textoGravidade } = gravidadeMap[grauGravidade] || { cor: "bg-gray-200", texto: "- - -" }; // Caso seja um ícone errado
 
     const [detalhesVisiveis, setDetalhesVisiveis] = useState(false); // Por padrão os detalhes dos alertas virão vazios
 
     return (
-        <div className={`${detalhesVisiveis ? "h-auto" : "h-fit"} w-[340px] flex flex-col border-2 border-gray-500 rounded-xl p-4 my-2`}>
+        <div className={`transition-all duration-300 ${detalhesVisiveis ? "h-auto" : "h-fit"} w-full max-w-[340px] flex flex-col border-2 border-gray-500 rounded-xl p-4 shadow-md`}>
             {/* Título e gravidade */}
-            <div className="flex justify-between">
-                <h2 className="font-bold text-xl w-auto">{titulo}</h2>
-                <p className={`${corDaGravidade} rounded-xl px-2 font-light`}>{textoGravidade}</p> {/* Adicionar funcionalidade para os "temas" de gravidade aqui*/}
+            <div className="flex justify-between items-center mb-2">
+                <h2 className="font-semibold text-xl w-full text-left">{titulo}</h2>
+                <p className={`${corDaGravidade} rounded-full px-3 py-1 text-sm font-light`}>{textoGravidade}</p>
             </div>
 
-            <p>{data}</p>
+            <p className="text-gray-500 mb-2">{data}</p>
 
-            {/* Descrição, só é exibida quando clicado em detalhes */}
-            <div className={`${detalhesVisiveis ? "grid" : "hidden"} bg-slate-200 p-2 rounded-xl my-2`}>
-                <h3 className="font-bold">Descrição:</h3>
-                <p className="text-justify">{descricao}</p>
+            {/* Descrição só é exibida quando clicado em detalhes */}
+            <div className={`${detalhesVisiveis ? "block" : "hidden"} bg-slate-100 p-3 rounded-xl my-2`}>
+                <h3 className="font-bold mb-1">Descrição:</h3>
+                <p className="text-justify text-sm">{descricao}</p>
             </div>
 
-            <p className={`${detalhesVisiveis ? "text-red-700" : "Ver detalhes"} self-center font-bold text-lg underline cursor-pointer`} onClick={() => setDetalhesVisiveis(!detalhesVisiveis)}>
+            <p className={`cursor-pointer text-lg font-semibold text-red-700 underline ${detalhesVisiveis ? "text-red-700" : "text-blue-600"} self-center`} onClick={() => setDetalhesVisiveis(!detalhesVisiveis)}>
                 {detalhesVisiveis ? "Ocultar detalhes" : "Ver detalhes"}
             </p>
         </div>
